@@ -5,7 +5,7 @@ export {
         ts                          : time    &log;
         uid                         : string  &log;
         id                          : conn_id &log;
-        proto                       : transport_proto &log;
+        proto                       : string  &log;
         omron_fins_link_id          : string  &log &optional;
         tcp_header                  : string  &log &optional;
         tcp_length                  : count   &log &optional;
