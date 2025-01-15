@@ -1,5 +1,6 @@
 module OMRON_FINS;
 
+export {
     type general_log: record {
         ts                          : time    &log;
         uid                         : string  &log;
@@ -330,3 +331,4 @@ module OMRON_FINS;
         block_no                : count  &log &optional;
         memory_data             : string &log &optional;
     };
+}
