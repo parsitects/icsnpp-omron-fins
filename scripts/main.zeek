@@ -48,7 +48,7 @@ export {
 
 # redefine connection record to contain one of each of the omron_fins records
 redef record connection += {
-    omron_fins_proto: string &optional;
+    omron_fins_proto: transport_proto &optional;
     omron_fins_general_log: general_log &optional;
     omron_fins_detail_log: detail_log &optional;
     omron_fins_network_status_read_log: network_status_read_log &optional;
