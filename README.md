@@ -10,22 +10,34 @@ The FINS protocol can be addressed to Omron CV-Series PCs (programmable controll
 
 This parser targets the FINS commands available to the CV-Series, C-Series, SYSMAC LINK, and SYSMAC NET PCs transported over UDP.
 
-## Installation
+## Installation (via zkg)
 
 ### Package Manager
 
-This script is available as a package for [Zeek Package Manager](https://docs.zeek.org/projects/package-manager/en/stable/index.html). It requires [Spicy](https://docs.zeek.org/projects/spicy/en/latest/) and the [Zeek Spicy plugin](https://docs.zeek.org/projects/spicy/en/latest/zeek.html).
+This script is available as a package for [Zeek Package Manager](https://docs.zeek.org/projects/package-manager/en/stable/index.html). Zeek includes Spicy support by default as of [v6.0.0](https://github.com/zeek/zeek/releases/tag/v6.0.0).
 
 ```bash
 $ zkg refresh
 $ zkg install icsnpp-omron-fins
 ```
 
-If this package is installed from ZKG, it will be added to the available plugins. This can be tested by running `zeek -NN`. If installed correctly, users will see `ANALYZER_SPICY_OMRON_FINS` under the list of `Zeek::Spicy` analyzers.
+If this package is installed from ZKG, it will be added to the available plugins. This can be tested by running `zeek -NN`. If installed correctly, users will see `ANALYZER_OMRON_FINS` under the list of `Zeek::Spicy` analyzers.
 
 If users have ZKG configured to load packages (see `@load packages` in the( [ZKG Quickstart Guide](https://docs.zeek.org/projects/package-manager/en/stable/quickstart.html)), this plugin and these scripts will automatically be loaded and ready to go.)
 
 If users are compiling the code manually, use clang as the compiler by compiling zeek with clang. Installing the package with zkg is not impacted.
+
+## Installation (via git clone)
+
+```bash
+git clone https://github.com/cisagov/icsnpp-omron-fins.git
+cd icsnpp-omron-fins
+mkdir build && cd build && cmake .. && make && cd ..
+```
+
+From here you can install the locally built files through `zkg install ./icsnpp-omron-fins` and run it like you would normally.
+Or you can manually run the parser without installing it: `zeek ./build/omron_fins.hlto ./scripts/__load__.zeek  -Cr <pcap>`
+
 
 ## Logging Capabilities
 
